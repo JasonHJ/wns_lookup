@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import Search from './Search'
+import BatchSearch from './batchSearch'
 
 class App extends Component {
   render() {
@@ -12,8 +13,14 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Wanchain Name Service Lookup</h1>
         </header>
-        <div className="App-intro container-fluid">
-          <Search />
+        <div className="App-introCont">
+          <div className="App-introLeft">
+            <Search />
+          </div>
+
+          <div className="App-introRight">
+            <BatchSearch />
+          </div>
         </div>
       </div>
     );

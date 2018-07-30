@@ -82,9 +82,9 @@ class Search extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container containerLeft">
         <div className="row">
-          <InputGroup className="col-lg-offset-2 col-lg-8">
+          <InputGroup>
             <input type="text" ref={this.textInput} className="form-control" placeholder="Search for domain status" />
             <span className="input-group-addon">.wan</span>
             <span className="input-group-btn">
