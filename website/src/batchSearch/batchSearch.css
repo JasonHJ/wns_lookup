@@ -8,3 +8,18 @@
 .btn-default{
     height: 38px;
 }
+.textC{
+    text-align: center;
+}
+.zone{
+    position: relative;
+    width: 500px;
+    border-width: 2px;
+    border-color: rgb(102, 102, 102);
+    border-style: dashed;
+    border-radius: 5px;
+    padding: 10px 0 0;
+}
+.li_style {
+    list-style-type:none;
+}

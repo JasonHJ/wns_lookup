@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { InputGroup } from 'react-bootstrap';
+import { url } from '../config'
 
 class Search extends Component {
 
@@ -67,7 +68,7 @@ class Search extends Component {
   handleClick() {
     let input = this.textInput.current.value;
     if(input){
-      fetch(`http://192.168.91.130:8000/domainstatus/${input}`)
+      fetch(`${url}/domainstatus/${input}`)
             .then((result) => {
               return result.text()
             })
@@ -119,13 +120,13 @@ class Search extends Component {
                 }
                 {this.state.result.curWinner && 
                   <tr>
-                    <td>The owner is</td>
+                    <td>The current owner is</td>
                     <td>{this.state.result.curWinner}</td>
                   </tr>
                 }
                 {this.state.result.curBid && 
                   <tr>
-                    <td>The owner is</td>
+                    <td>The current winning bid is</td>
                     <td>{this.state.result.curBid}</td>
                   </tr>
                 }

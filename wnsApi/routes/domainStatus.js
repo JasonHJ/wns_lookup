@@ -2,9 +2,7 @@ const router = require('express').Router();
 const {web3, namehash, wns, contractInstance, deedContract } = require('../method');
 
 router.get('/domainstatus/:domain', function (req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Headers", "X-Requested-With");
-  res.setHeader("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+
   let domain = req.params.domain;
 
   if (domain.length < 6) {
