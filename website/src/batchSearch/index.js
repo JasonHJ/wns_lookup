@@ -10,7 +10,8 @@ class batchSearch extends Component {
         this.state = {       
             accepted: [],
             rejected: [],
-            result: null
+            result: null,
+            loading: false
         };
         this.onDrop = this.onDrop.bind(this);
         this.uploadFile = this.uploadFile.bind(this);
@@ -21,11 +22,17 @@ class batchSearch extends Component {
     }
 
     uploadFile() {
+        console.log(this.state.loading)
+        if(this.state.loading === true) {
+            alert('Please wait for the query result');
+            return;
+        }
+
         if(this.state.accepted.length === 0){
             alert('Please select a JSON file');
             return;
         }
-
+        this.setState({ loading: true });
         let filedata = new FormData();
         filedata.append('file', this.state.accepted[0]);
         fetch(`${url}/batchsearch`, {
@@ -37,7 +44,9 @@ class batchSearch extends Component {
             })
             .then(result => {
                 this.setState({
-                    result: JSON.parse(result)
+                    result: JSON.parse(result),
+                    loading: false,
+                    accepted: []
                 })
             });
     }

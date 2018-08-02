@@ -3,6 +3,7 @@ const path = require('path');
 
 const domainStatus = require('./domainStatus');
 const batchSearch = require('./batchSearch');
+const transInfo = require('./transInfo');
 
 router.get('/download/*.json', function (req, res) {
     console.log(req.params['0'],111)
@@ -12,5 +13,6 @@ router.get('/download/*.json', function (req, res) {
 
 router.get('/domainstatus/:domain', domainStatus);
 router.post('/batchsearch', batchSearch);
+router.get('/transinfo/:trans', transInfo);
 
 module.exports = router;

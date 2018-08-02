@@ -30,7 +30,7 @@ class Search extends Component {
     if(data.status === 2) {
       return {
         name: data.name,
-        status: "Name is available and the auction has been started",
+        status: "Name is taken and currently owned by someone",
         endTime: (new Date(data.endTime)).toString(),
         owner: data.owner
       };

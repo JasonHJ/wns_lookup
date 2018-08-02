@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const {web3, namehash, wns, contractInstance, deedContract } = require('../method');
+const {web3, contractInstance, deedContract } = require('../method');
 const outputFolder = path.join(__dirname, '..', 'outputs');
 
 function getStatus(arrName, fieldname) {
@@ -21,7 +21,6 @@ function getStatus(arrName, fieldname) {
             ];
 
             let status = contractInstance.entries(web3.sha3(arrName[i]["name"]))[0].toString();
-            console.log(arrName[i]["name"], arrInfo[status]);
             arrName[i].status = arrInfo[status];
         }
 
