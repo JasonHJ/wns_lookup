@@ -36,7 +36,7 @@ router.get('/domainstatus/:domain', function (req, res, next) {
         status: 2,
         endTime: contractInstance.entries(web3.sha3(domain))[2].toNumber() * 1000,
         owner: deedContract.at(contractInstance.entries(web3.sha3(domain))[1]).owner(),
-        bid: web3.fromWei(contractInstance.entries(web3.sha3(domain))[4])
+        bid: web3.fromWei(deedContract.at(contractInstance.entries(web3.sha3(domain))[1]).value())
       })
     }
     if (status === '3') {

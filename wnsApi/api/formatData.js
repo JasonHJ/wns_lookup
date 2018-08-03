@@ -13,7 +13,7 @@ function getStatus(arrName, fieldname) {
                 'The owner is : ' + 
                 deedContract.at(contractInstance.entries(web3.sha3(arrName[i]["name"]))[1]).owner() +
                 '\nThe winning bid is: ' +
-                web3.fromWei(contractInstance.entries(web3.sha3(arrName[i]["name"]))[4]) + ' WAN',
+                web3.fromWei(deedContract.at(contractInstance.entries(web3.sha3(arrName[i]["name"]))[1]).value()) + ' WAN',
                 'Name is forbidden',
                 'Name is currently in the \'reveal\' stage of the auction \n' +
                 'The current winning bidder is: ' +
