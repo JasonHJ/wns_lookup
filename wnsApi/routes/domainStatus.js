@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {web3, namehash, wns, contractInstance, deedContract } = require('../method');
+const {web3, contractInstance, deedContract } = require('../method');
 
 router.get('/domainstatus/:domain', function (req, res, next) {
 
@@ -35,7 +35,8 @@ router.get('/domainstatus/:domain', function (req, res, next) {
         name: domain,
         status: 2,
         endTime: contractInstance.entries(web3.sha3(domain))[2].toNumber() * 1000,
-        owner: wns.owner(namehash(`${domain}.wan`))
+        owner: deedContract.at(contractInstance.entries(web3.sha3(domain))[1]).owner(),
+        bid: web3.fromWei(contractInstance.entries(web3.sha3(domain))[4])
       })
     }
     if (status === '3') {

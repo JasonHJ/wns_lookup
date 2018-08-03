@@ -32,7 +32,8 @@ class Search extends Component {
         name: data.name,
         status: "Name is taken and currently owned by someone",
         endTime: (new Date(data.endTime)).toString(),
-        owner: data.owner
+        owner: data.owner,
+        bid: data.bid + " WAN"
       };
     }
     if(data.status === 3) {
@@ -128,6 +129,12 @@ class Search extends Component {
                   <tr>
                     <td>The current winning bid is</td>
                     <td>{this.state.result.curBid}</td>
+                  </tr>
+                }
+                {this.state.result.bid && 
+                  <tr>
+                    <td>The winning bid is</td>
+                    <td>{this.state.result.bid}</td>
                   </tr>
                 }
               </tbody>

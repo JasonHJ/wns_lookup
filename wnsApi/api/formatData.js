@@ -9,7 +9,11 @@ function getStatus(arrName, fieldname) {
             let arrInfo = [
                 'Name is available and the auction hasn\'t started',
                 'Name is available and the auction has been started, the end time of the auction is ' + new Date(contractInstance.entries(web3.sha3(arrName[i]["name"]))[2].toNumber() * 1000),
-                'Name is taken and currently owned by someone',
+                'Name is taken and currently owned by someone \n' +
+                'The owner is : ' + 
+                deedContract.at(contractInstance.entries(web3.sha3(arrName[i]["name"]))[1]).owner() +
+                '\nThe winning bid is: ' +
+                web3.fromWei(contractInstance.entries(web3.sha3(arrName[i]["name"]))[4]) + ' WAN',
                 'Name is forbidden',
                 'Name is currently in the \'reveal\' stage of the auction \n' +
                 'The current winning bidder is: ' +
