@@ -33,7 +33,8 @@ class Search extends Component {
         status: "Name is taken and currently owned by someone",
         endTime: (new Date(data.endTime)).toString(),
         owner: data.owner,
-        bid: data.bid + " WAN"
+        value: data.value + " WAN",
+        highestBid: data.highestBid + " WAN"
       };
     }
     if(data.status === 3) {
@@ -115,26 +116,32 @@ class Search extends Component {
                 }
                 {this.state.result.owner && 
                   <tr>
-                    <td>The owner is</td>
+                    <td>Owner</td>
                     <td>{this.state.result.owner}</td>
                   </tr>
                 }
                 {this.state.result.curWinner && 
                   <tr>
-                    <td>The current owner is</td>
+                    <td>Current Owner</td>
                     <td>{this.state.result.curWinner}</td>
                   </tr>
                 }
                 {this.state.result.curBid && 
                   <tr>
-                    <td>The current winning bid is</td>
+                    <td>Current Winning Bid</td>
                     <td>{this.state.result.curBid}</td>
                   </tr>
                 }
-                {this.state.result.bid && 
+                {this.state.result.value && 
                   <tr>
-                    <td>The winning bid is</td>
-                    <td>{this.state.result.bid}</td>
+                    <td>Value</td>
+                    <td>{this.state.result.value}</td>
+                  </tr>
+                }
+                {this.state.result.highestBid && 
+                  <tr>
+                    <td>Highest Bid</td>
+                    <td>{this.state.result.highestBid}</td>
                   </tr>
                 }
               </tbody>
